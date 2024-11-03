@@ -56,6 +56,11 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovementController.cs" />
     <Compile Include="Assets\Scripts\Player\SwitchManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBase.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Bomber.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Asset Store\JKT_ART\etc\MatCap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -55,7 +55,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             var rotationY = Quaternion.LookRotation(movementDirection, Vector3.up);
 
-            Debug.Log(rotationY);
             body.transform.rotation = Quaternion.RotateTowards(body.transform.rotation, rotationY, 270 * Time.deltaTime);
         }
     }

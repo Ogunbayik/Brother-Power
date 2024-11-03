@@ -47,6 +47,9 @@ public class SwitchManager : MonoBehaviour
             case States.ControllingPlayer:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    currentPlayer.GetComponent<PlayerAnimationController>().RunAnimation(false);
+                    PlayerScriptsActivate(false);
+                    
                     currentState = States.SwitchingCamera;
                     SwitchCamera();
                 }
@@ -58,6 +61,7 @@ public class SwitchManager : MonoBehaviour
                 {
                     delayTimer = maxDelayTimer;
                     currentState = States.ControllingPlayer;
+                    PlayerScriptsActivate(true);
                 }
                 break;
         }
@@ -83,4 +87,12 @@ public class SwitchManager : MonoBehaviour
             ActivateBigPlayerCamera(true);
         }
     }
+
+    private void PlayerScriptsActivate(bool isActive)
+    {
+        currentPlayer.GetComponent<PlayerMovementController>().enabled = isActive;
+        currentPlayer.GetComponent<PlayerAnimationController>().enabled = isActive;
+    }
+
+
 }
