@@ -5,8 +5,6 @@ using Cinemachine;
 
 public class SwitchManager : MonoBehaviour
 {
-    public static SwitchManager Instance { get; private set; }
-
     public enum States
     {
         ControllingPlayer,
@@ -24,13 +22,6 @@ public class SwitchManager : MonoBehaviour
 
     [SerializeField] private float maxDelayTimer;
     private float delayTimer;
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-            Destroy(this);
-        else
-            Instance = this;
-    }
     void Start()
     {
         currentPlayer = bigPlayer;
@@ -67,13 +58,6 @@ public class SwitchManager : MonoBehaviour
         }
     }
 
-    private void ActivateBigPlayerCamera(bool isActive)
-    {
-        //If it is true, big camera is activate..
-        bigPlayerCamera.gameObject.SetActive(isActive);
-        littlePlayerCamera.gameObject.SetActive(!isActive);
-    }
-
     private void SwitchCamera()
     {
         if (currentPlayer == bigPlayer)
@@ -88,11 +72,17 @@ public class SwitchManager : MonoBehaviour
         }
     }
 
+    private void ActivateBigPlayerCamera(bool isActive)
+    {
+        //If it is true, big camera is activate..
+        bigPlayerCamera.gameObject.SetActive(isActive);
+        littlePlayerCamera.gameObject.SetActive(!isActive);
+    }
+
     private void PlayerScriptsActivate(bool isActive)
     {
         currentPlayer.GetComponent<PlayerMovementController>().enabled = isActive;
         currentPlayer.GetComponent<PlayerAnimationController>().enabled = isActive;
     }
-
 
 }

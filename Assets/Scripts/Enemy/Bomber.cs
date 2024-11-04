@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class Bomber : EnemyBase
 {
-
     void Start()
     {
-        Movement();
+        base.Initialize();
     }
 
     void Update()
-    {
-        
-    }
-
-    public override void Movement()
     {
         base.Movement();
     }

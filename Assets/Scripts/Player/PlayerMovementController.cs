@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    private const string SWITCH_MANAGER_OBJECT = "SwitchManager";
+
     private const string HORIZONTAL_INPUT = "Horizontal";
     private const string VERTICAL_INPUT = "Vertical";
 
     private PlayerAnimationController animationController;
+    private SwitchManager switchManager;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private Transform body;
@@ -20,6 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Awake()
     {
         animationController = GetComponent<PlayerAnimationController>();
+        switchManager = GameObject.Find(SWITCH_MANAGER_OBJECT).GetComponent<SwitchManager>();
     }
 
     void Update()
@@ -39,7 +43,7 @@ public class PlayerMovementController : MonoBehaviour
         else
             isRunning = false;
 
-        if (isRunning && SwitchManager.Instance.currentState == SwitchManager.States.ControllingPlayer)
+        if (isRunning && switchManager.currentState == SwitchManager.States.ControllingPlayer)
         {
             transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
             animationController.RunAnimation(true);
