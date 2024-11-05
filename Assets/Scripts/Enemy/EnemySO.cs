@@ -9,6 +9,7 @@ public class EnemySO : ScriptableObject
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float chaseDistance;
+    [SerializeField] private float patrolRange;
 
     public string GetName()
     {
@@ -30,4 +31,8 @@ public class EnemySO : ScriptableObject
         return chaseDistance;
     }
     
+    public float GetPatrolRange()
+    {
+        return patrolRange;
+    }
 }

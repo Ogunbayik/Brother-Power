@@ -16,3 +16,4 @@ MonoBehaviour:
   walkSpeed: 1.5
   runSpeed: 2.5
   chaseDistance: 4
+  patrolRange: 5

@@ -7,10 +7,11 @@ public class Bomber : EnemyBase
     void Start()
     {
         base.Initialize();
+
     }
 
     void Update()
     {
-        base.Movement();
+        base.HandlerUpdate();
     }
 }

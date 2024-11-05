@@ -85,4 +85,9 @@ public class SwitchManager : MonoBehaviour
         currentPlayer.GetComponent<PlayerAnimationController>().enabled = isActive;
     }
 
+
+    public GameObject GetCurrentPlayer()
+    {
+        return currentPlayer;
+    }
 }
